@@ -2,19 +2,19 @@
 # Выдать без повторений в порядке возрастания все те числа, которые встречаются в обоих наборах.
 # Пользователь вводит 2 списка. 1 строка - первый список через пробел. 2 строка - второй список через пробел.
 
-# def sort_inter_list(*lists):
-#     s = {}
-#     for item in lists:
-#         if len(s):
-#             s = set.intersection(s, set(item))
-#         else:
-#             s = set(item)   
-#     return sorted(list(s))
+def sort_inter_list(*lists):
+    s = {}
+    for item in lists:
+        if len(s):
+            s = s.intersection(set(item))
+        else:
+            s = set(item)   
+    return sorted(list(s))
 
-# list1 = list(map(int, input("Введите 1-ый массив: ").split(" ")))
-# list2 = list(map(int, input("Введите 2-ой массив: ").split(" ")))
+list1 = list(map(int, input("Введите 1-ый массив: ").split(" ")))
+list2 = list(map(int, input("Введите 2-ой массив: ").split(" ")))
 
-# print(sort_inter_list(list1, list2))
+print(sort_inter_list(list1, list2))
 
 
 # Задача 24: В фермерском хозяйстве в Карелии выращивают чернику.
@@ -27,15 +27,15 @@
 # Напишите программу для нахождения максимального числа ягод, которое может собрать за один заход собирающий модуль,
 #  находясь перед некоторым кустом заданной во входном списке содержащим количество ягод на кустах.
 
-def sum_side_by_side(list_start):
-    if len(list_start) > 3:
-        list_sum = []
-        list_sum.append(list_start[0] + list_start[1] + list_start[-1])
-        for i in range(1,len(list_start)-1):
-            list_sum.append(sum(list_start[i-1:i+2]))
-        list_sum.append(list_start[-2] + list_start[-1] + list_start[0])    
-        return list_sum
-    return [sum(list_start) for i in range(len(list_start))]
+# def sum_side_by_side(list_start):
+#     if len(list_start) > 3:
+#         list_sum = []
+#         list_sum.append(list_start[0] + list_start[1] + list_start[-1])
+#         for i in range(1,len(list_start)-1):
+#             list_sum.append(sum(list_start[i-1:i+2]))
+#         list_sum.append(list_start[-2] + list_start[-1] + list_start[0])    
+#         return list_sum
+#     return [sum(list_start) for i in range(len(list_start))]
 
-list_bush = list(map(int, input("Введите массив: ").split(" ")))
-print(f"Максимальное число ягод, которое может собрать за один заход собирающий модуль: {max(sum_side_by_side(list_bush))}")
+# list_bush = list(map(int, input("Введите массив: ").split(" ")))
+# print(f"Максимальное число ягод, которое может собрать за один заход собирающий модуль: {max(sum_side_by_side(list_bush))}")
