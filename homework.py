@@ -2,10 +2,16 @@
 # Выдать без повторений в порядке возрастания все те числа, которые встречаются в обоих наборах.
 # Пользователь вводит 2 списка. 1 строка - первый список через пробел. 2 строка - второй список через пробел.
 
-list1 = [9, 2, 4, 5, 6, 6]
-list2 = [9, 5, 4, 6, 6, 4, 3, 6]
+def sort_inter_list(*lists):
+    s = {}
+    for item in lists:
+        if len(s):
+            s = set.intersection(s, set(item))
+        else:
+            s = set(item)   
+    return sorted(list(s))
 
-def sort_inter_list(list1, list2):
-    return sorted(list(set.intersection(set(list1), set(list2))))
+list1 = map(int, input("Введите 1-ый массив: ").split(" "))
+list2 = map(int, input("Введите 2-ой массив: ").split(" "))
 
 print(sort_inter_list(list1, list2))
