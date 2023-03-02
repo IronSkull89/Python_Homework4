@@ -28,12 +28,14 @@
 #  находясь перед некоторым кустом заданной во входном списке содержащим количество ягод на кустах.
 
 def sum_side_by_side(list_start):
-    list_sum = []
-    list_sum.append(list_start[0] + list_start[1] + list_start[-1])
-    for i in range(1,len(list_start)-1):
-        list_sum.append(sum(list_start[i-1:i+2]))
-    list_sum.append(list_start[-2] + list_start[-1] + list_start[0])    
-    return list_sum
+    if len(list_start) > 3:
+        list_sum = []
+        list_sum.append(list_start[0] + list_start[1] + list_start[-1])
+        for i in range(1,len(list_start)-1):
+            list_sum.append(sum(list_start[i-1:i+2]))
+        list_sum.append(list_start[-2] + list_start[-1] + list_start[0])    
+        return list_sum
+    return [sum(list_start) for i in range(len(list_start))]
 
 list_bush = list(map(int, input("Введите массив: ").split(" ")))
 print(f"Максимальное число ягод, которое может собрать за один заход собирающий модуль: {max(sum_side_by_side(list_bush))}")
